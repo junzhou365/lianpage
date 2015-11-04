@@ -1,0 +1,39 @@
+body {
+
+}
+
+div#main, div#contact, div#games, div#projects, div#about {
+  font-family: Agenda-Light, 'Agenda Light', Agenda, 'Arial Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  border-style: solid;
+  border-width: 0px;
+  &:hover {
+      border-width: 4px; // helper.js is 4px;
+  }
+}
+
+.line(@direction) {
+    // background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1)); /* For Safari 5.1 to 6.0 */
+    // background: -o-linear-gradient(@direction, rgba(0,0,0,1), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
+    // background: -moz-linear-gradient(@direction, rgba(0,0,0,1), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
+    // background: linear-gradient(to @direction, rgba(0,0,0,1), rgba(0,0,0,0)); /* Standard syntax (must be last) */
+    background: black;
+}
+
+div#line_about {
+  .line(left);
+}
+
+div#line_contact {
+  .line(right);
+}
+
+div#line_projects {
+  .line(top);
+}
+
+div#line_games {
+  .line(bottom);
+}
