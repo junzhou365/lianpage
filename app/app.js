@@ -41,6 +41,8 @@ angular.module('myApp', ['ui.router'])
   // $("div").velocity({
   //   width: "*=2"
   // }, 2000);
+
+  controlVideo();
   var barWidth = 200;
   var barHeight = 50;
   var lineWidth = 4;
@@ -50,14 +52,14 @@ angular.module('myApp', ['ui.router'])
 
     $scope.$apply(function(){
        //do something to update current scope based on the new innerWidth and let angular update the view.
-       setLayout(basics, $(window).width(), $(window).height())
+      //  setLayout(basics, $(window).width(), $(window).height())
     });
   });
-  setLayout(basics, $(window).width(), $(window).height())
+  // setLayout(basics, $(window).width(), $(window).height())
 
-  $scope.about = selectSection(basics, $state, "about");
-  $scope.contact = selectSection(basics, $state, "contact");
-  $scope.games = selectSection(basics, $state, "games");
-  $scope.projects = selectSection(basics, $state, "projects");
+  // $scope.about = selectSection(basics, $state, "about");
+  // $scope.contact = selectSection(basics, $state, "contact");
+  // $scope.games = selectSection(basics, $state, "games");
+  // $scope.projects = selectSection(basics, $state, "projects");
 
 }]);

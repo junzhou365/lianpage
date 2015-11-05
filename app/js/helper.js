@@ -19,11 +19,11 @@ var setLayout = function(basics, windowWidth, windowHeight) {
   var bottomThreeDivsHeight = topMargin + lineLength + barHeight;
   var posProjects = {left: lrMargin + barWidth + lineLength, top: topMargin};
   var posAbout = {left: lrMargin, top: bottomThreeDivsHeight};
-  var posMain = {left: lrMargin + barWidth + lineLength, top: bottomThreeDivsHeight};
+  var posJun = {left: lrMargin + barWidth + lineLength, top: bottomThreeDivsHeight};
   var posContact = {left: lrMargin + 2 * barWidth + 2 * lineLength, top: bottomThreeDivsHeight};
   var posGames = {left: lrMargin + barWidth + lineLength, top: bottomThreeDivsHeight + barHeight + lineLength};
 
-  $("#main").css({top: posMain.top, left: posMain.left, width: barWidth, height: barHeight, position: "absolute"});
+  $("#jun").css({top: posJun.top, left: posJun.left, width: barWidth, height: barHeight, position: "absolute"});
 
   $("#about").css({top: posAbout.top, left: posAbout.left, width: barWidth, height: barHeight, position: "absolute"});
   $("#line_about").css({top: posAbout.top + barHeight / 2 - lineWidth / 2, left: posAbout.left + barWidth, marginLeft: lineLength, position: "absolute"});
@@ -42,15 +42,15 @@ var selectSection = function(basics, $state, section) {
   return function() {
     var sections = ["about", "games", "projects", "contact"].filter(function(x){ return x != section});
     sections.splice(0, 0, section);
-    var durationMain = 500;
+    var durationJun = 500;
     var durationLine = 250;
     var durationStep1 = 250; // section appears
     var durationStep2 = 500; // section slides
     var durationStep3 = 250; // wait and section disappears
-    var redirectDelay = durationMain + durationLine +
+    var redirectDelay = durationJun + durationLine +
       durationStep1 + durationStep2 + durationStep3 + 100;
 
-    $("#main").velocity({ borderWidth: 4}, durationMain)
+    $("#jun").velocity({ borderWidth: 4}, durationJun)
     .delay(durationLine+durationStep1)
     .velocity({opacity: 0}, {duration: durationStep2, display: "none"});
 
@@ -84,28 +84,28 @@ var selectSection = function(basics, $state, section) {
       lineDurationStep2 = durationStep2 * basics.lineLength / (basics.lineLength + basics.barHeight);
     }
 
-    $("#line_"+sections[0]).delay(durationMain).css(lineCSSChange1).velocity(lineCSSChange2, durationLine)
+    $("#line_"+sections[0]).delay(durationJun).css(lineCSSChange1).velocity(lineCSSChange2, durationLine)
     .delay(durationStep1)
     // ease in linear
     .velocity(lineCSSChange3, lineDurationStep2, [0,0,1,1]);
 
 
-    $("#"+sections[0]).delay(durationLine + durationMain)
+    $("#"+sections[0]).delay(durationLine + durationJun)
     .velocity({ borderWidth: 4 }, durationStep1)
     .velocity(cssChange, durationStep2, [0,0,1,1])
     .velocity({opacity: 0}, {duration: durationStep3, display: "none"});
 
     $("#"+sections[1])
-    .delay(durationMain+durationLine+durationStep1)
+    .delay(durationJun+durationLine+durationStep1)
     .velocity({opacity: 0}, {duration: durationStep2, display: "none"});
     // console.log($("#games").css(opacity));
 
     $("#"+sections[2])
-    .delay(durationMain+durationLine+durationStep1)
+    .delay(durationJun+durationLine+durationStep1)
     .velocity({opacity: 0}, {duration: durationStep2, display: "none"});
 
     $("#"+sections[3])
-    .delay(durationMain+durationLine+durationStep1)
+    .delay(durationJun+durationLine+durationStep1)
     .velocity({opacity: 0}, {duration: durationStep2, display: "none"});
 
     setTimeout(function(){ $state.go(sections[0]); }, redirectDelay);

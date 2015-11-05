@@ -1,17 +1,42 @@
-body {
+@borderColor: rgba(0,0,0,0.3);
 
+body {
+  margin: 0;
+  // background: #000;
+}
+#main {
+  margin: 0;
+  background: #000;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
 }
 
-div#main, div#contact, div#games, div#projects, div#about {
+.blanket {
+  background: @borderColor;
+  width: 20%;
+  // height: 100px;
+  margin: 1.5rem;
+  padding: 2rem;
+}
+div#jun, div#contact, div#games, div#projects, div#about {
   font-family: Agenda-Light, 'Agenda Light', Agenda, 'Arial Narrow', sans-serif;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 4rem;
   text-align: center;
+  letter-spacing: .3rem;
   border-style: solid;
   border-width: 0px;
+  border-color: @borderColor;
+  color: white;
   &:hover {
       border-width: 4px; // helper.js is 4px;
+      cursor: pointer;
   }
+}
+
+div#jun {
+  
 }
 
 .line(@direction) {
@@ -36,4 +61,22 @@ div#line_projects {
 
 div#line_games {
   .line(bottom);
+}
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('sail.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade {
+ opacity: .5;
 }
