@@ -1,16 +1,13 @@
-<div id="main" ng-controller= "mainController">
-  <video autoplay poster="sail.jpg" id="bgvid">
-      <source src="hhh.mp4" type="video/mp4">
+<div id="main">
+  <video autoplay poster="images/sail.jpg" id="bgvid">
+      <source src="videos/sail.mp4" type="video/mp4">
   </video>
-  <div class="blanket">
-    <div id="jun">JUNXIANG ZHOU</div>
-    <div id="projects" ng-click= "projects()">PROJECTS</div>
-    <div id="games" ng-click= "games()">GAMES</div>
-    <div id="about" ng-click= "about()">ABOUT</div>
-    <div id="contact" ng-click= "contact()">CONTACT</div>
-    <!-- <div id="line_contact"></div>
-    <div id="line_about"></div>
-    <div id="line_games"></div>
-    <div id="line_projects"></div> -->
+  <div id="menu" class="blanket">
+    <div id="jun" ng-click= "jun()">JUNXIANG</div>
+    <div id="about" ui-sref= "main.about">ABOUT</div>
+    <div id="projects" ui-sref= "projects">PROJECTS</div>
+    <div id="resume" ui-sref= "resume">RESUME</div>
+    <div id="contact" ui-sref= "main.contact">CONTACT</div>
   </div>
+  <div ui-view></div>
 </div>

@@ -3,13 +3,14 @@
 body {
   margin: 0;
   // background: #000;
+  font-family: Agenda-Light, 'Agenda Light', Agenda, 'Arial Narrow', sans-serif;
+  font-size: 4rem;
+  text-align: center;
+
 }
-#main {
-  margin: 0;
-  background: #000;
-  position: fixed;
-  min-width: 100%;
-  min-height: 100%;
+
+.title {
+  margin-bottom: 4rem;
 }
 
 .blanket {
@@ -18,49 +19,44 @@ body {
   // height: 100px;
   margin: 1.5rem;
   padding: 2rem;
-}
-div#jun, div#contact, div#games, div#projects, div#about {
-  font-family: Agenda-Light, 'Agenda Light', Agenda, 'Arial Narrow', sans-serif;
-  font-weight: bold;
-  font-size: 4rem;
-  text-align: center;
-  letter-spacing: .3rem;
-  border-style: solid;
-  border-width: 0px;
-  border-color: @borderColor;
   color: white;
+}
+
+.strong {
+  font-size: 4rem;
+  font-weight: bold;
+}
+.link {
+  // display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background;
   &:hover {
-      border-width: 4px; // helper.js is 4px;
-      cursor: pointer;
+    cursor: pointer;
   }
 }
 
-div#jun {
-  
+.logo {
+  .link;
+  left: 0;
+  top: 0;
+  margin: 2rem;
+  padding: 2rem;
+  position: fixed;
+  background: @borderColor;
 }
 
-.line(@direction) {
-    // background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1)); /* For Safari 5.1 to 6.0 */
-    // background: -o-linear-gradient(@direction, rgba(0,0,0,1), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
-    // background: -moz-linear-gradient(@direction, rgba(0,0,0,1), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
-    // background: linear-gradient(to @direction, rgba(0,0,0,1), rgba(0,0,0,0)); /* Standard syntax (must be last) */
-    background: black;
-}
-
-div#line_about {
-  .line(left);
-}
-
-div#line_contact {
-  .line(right);
-}
-
-div#line_projects {
-  .line(top);
-}
-
-div#line_games {
-  .line(bottom);
+.return {
+  .link;
+  right: 0;
+  top: 0;
+  font-size: 2rem;
+  margin: 2rem;
+  padding: 1rem;
+  position: fixed;
+  background: @borderColor;
 }
 
 video {
@@ -73,10 +69,161 @@ video {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url('sail.jpg') no-repeat;
+  background: url('images/sail.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
 }
 .stopfade {
- opacity: .5;
+ opacity: 0.75;
+}
+
+
+#main {
+  margin: 0;
+  background: #000;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+
+  #menu {
+    min-width: 300px;
+  }
+
+  div#jun, div#contact, div#resume, div#projects, div#about {
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: .3rem;
+    border-style: solid;
+    border-width: 0px;
+    border-color: @borderColor;
+    opacity: 0;
+
+    &:hover {
+        border-width: 4px; // helper.js is 4px;
+        cursor: pointer;
+    }
+  }
+
+  div#jun {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    &:hover {
+        border-width: 0px; // helper.js is 4px;
+    }
+  }
+}
+
+#aboutSection {
+  .blanket;
+  &.about {
+    .blanket;
+    top:10%;
+    left: 30%;
+    width: 40%;
+    position: fixed;
+  }
+
+  .aboutSentence {
+    display: none;
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    .aboutRole {
+      opacity: 0;
+    }
+  }
+}
+
+#resumeSection {
+  font-family: Avenir-Black;
+  font-size: 2rem;
+  text-align: center;
+  color: black;
+  margin-bottom: 1rem;
+
+  .resumeContent {
+    width: 60%;
+    left: 20%;
+    position: absolute;
+
+    .resumeContainer {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .resumeFirst {
+      margin-top: 10rem;
+    }
+  }
+
+
+  h1, h2, h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  ul {
+    text-align: left;
+  }
+}
+
+#projectsSection {
+  .bordered {
+    // border: 1px solid #333;
+    // border-color: hsla(0, 0%, 0%, 0.5);
+    // border-radius: 5px;
+  }
+
+  .grid {
+    width: 60%;
+    left: 20%;
+    position: absolute;
+  }
+  .grid-sizer,
+  .grid-item {
+    padding: 1px;
+    width: 20%;
+    .bordered;
+
+  }
+  .grid-item {
+    .square {
+      width: 100%;
+      height: auto;
+      .bordered;
+    }
+  }
+  /* 2 columns */
+  .grid-item--width2 {
+    width: 40%;
+  }
+  .grid-item--width3 {
+    width: 60%;
+  }
+  .grid-item--width4 {
+    width: 80%;
+  }
+}
+
+#contactSection {
+    top:10%;
+    left: 30%;
+    width: 40%;
+    position: fixed;
+    font-size: 2.5rem;
+    p {
+      margin: 20px;
+    }
+
+    figure {
+      margin-left: 20px;
+      margin-right: 20px;
+      display: inline-block;
+    }
 }
