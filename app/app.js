@@ -53,15 +53,16 @@ angular.module('myApp', ['ui.router'])
 
   controlVideo();
   expandMenu();
-  console.log("main executed!");
-
 }])
 .controller('aboutController', ['$scope', '$interval', '$timeout', function($scope, $interval,$timeout) {
   var sentences = $("p");
   var size = sentences.length;
   var baseDuration = 250;
-  // var getLineHeight = function(i) {return parseInt(sentences.eq(i).css("line-height").slice(0, -2)) + parseInt(sentences.eq(i).css("margin-bottom").slice(0, -2))}
-  var height =  sentences.eq(0).outerHeight(true) * (size-1) + sentences.eq(2).outerHeight(true) + $(".blanket").css("padding").slice(0, -2) * 2 + $(".link").css("padding").slice(0, -2) * 2;
+  var height =
+    sentences.eq(0).outerHeight(true) * (size-1)
+    + sentences.eq(2).outerHeight(true)
+    + parseInt($(".blanket").css("padding-top"), 10) * 2
+    + parseInt($(".link").css("padding-top"), 10) * 2;
   $scope.roles = [false, false, false];
 
   $("#aboutSection")
